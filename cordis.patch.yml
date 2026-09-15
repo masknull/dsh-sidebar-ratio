@@ -1,0 +1,33 @@
+# dsh-sidebar-ratio bundle patch
+#
+# 官方 bundle 挂载层（与 dsh-better-sidebar / dshmarket 同一写法）：
+# `dsh plugin --profile web add <本目录>` 会把包名追加进 package.json 的
+# dsh.profile.bundles，profile 启动时应用这一层，插入下面的插件行。
+#
+# config 就是传给 apply(ctx, config) 的那份（loader 只把 config 子对象交给插件）：
+#   left       : 左侧栏占窗口宽度的比例；null = 不接管左侧栏
+#   right      : 右侧栏（文件/预览那一列）占窗口宽度的比例；null = 不接管右侧栏
+#   minLeft    : 左侧栏像素下限（DSH 原生的最小宽度是 264px，这里给得更宽松）
+#   minRight   : 右侧栏像素下限（原生 RIGHTBAR_MIN 是 300）
+#   enabled    : 总开关默认值
+#   inherit    : 同一父总会话内共享右侧栏面板（客户端半边 lib/client.js，默认 true）
+#   inheritAll : true = 忽略分组，任意会话切换都继承；false（默认）= 只在同一个父总会话组内共享
+#                「父总会话组」= 顶层会话本身 + 它下面所有层级的子代理（父→子、父→孙、同级子代理都算一组）
+#   inheritFromParent : 组内基准由谁写。false（默认）= 组内统一，谁开面板谁成为该组基准
+#                       （父会话开面板自然成为基准；目标会话自己开着面板时永远不覆盖）；
+#                       true = 严格依据父：只有父总会话能写基准，组内所有会话都依据父
+# 装好后在页面上的实时调整（拖把手 / Alt 快捷键 / window.dshSidebarRatio）会存进
+# 浏览器 localStorage，优先于这里的默认值；要在页面上永久改默认值就改这份文件后重装。
+# 注意 inherit / inheritAll 与宽度的默认值走同一条 global 行进入页面，改这里同样需要重启 dsh web。
+- insert:
+    - id: sidebar-ratio
+      name: 'dsh-sidebar-ratio'
+      config:
+        left: 0.14
+        right: null
+        minLeft: 200
+        minRight: 300
+        enabled: true
+        inherit: true
+        inheritAll: false
+        inheritFromParent: false

@@ -1,0 +1,9 @@
+# 本包无构建产物（纯 JavaScript），无需忽略编译输出。
+# 以下是常见的本地噪声：
+
+node_modules/
+*.log
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
