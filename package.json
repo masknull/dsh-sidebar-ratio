@@ -1,6 +1,6 @@
 {
   "name": "dsh-sidebar-ratio",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "DSH web plugin: 让侧边栏按窗口「比例」打开（左侧栏 14% 起，右侧栏可选），拖原生把手/快捷键直接调，比例存 localStorage；并让子代理会话继承父会话的右侧栏标签。不改 DSH 源码。",
   "type": "module",
   "license": "MIT",
@@ -27,7 +27,8 @@
     "README.md",
     "README_EN.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "assets"
   ],
   "dsh": {
     "bundle": {
@@ -54,5 +55,6 @@
   ],
   "engines": {
     "dsh": ">=0.1.7-rc.1"
-  }
+  },
+  "icon": "./assets/icon.svg"
 }
