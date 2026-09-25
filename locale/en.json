@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Sidebar Ratio",
+    "description": "Remember the sidebar widths as a ratio of the window, and share the right sidebar's tabs with a parent session's subagents."
+  }
+}

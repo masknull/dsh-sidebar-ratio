@@ -17,7 +17,8 @@
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
     "lib/index.js",
@@ -28,7 +29,8 @@
     "README_EN.md",
     "CHANGELOG.md",
     "LICENSE",
-    "assets"
+    "assets",
+    "locale/*.json"
   ],
   "dsh": {
     "bundle": {
